@@ -1,5 +1,23 @@
 <?php
 
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+final class DashboardController extends AbstractController
+{
+    #[Route('/dashboard', name: 'app_dashboard')]
+    public function index(): Response
+    {
+        return $this->render('dashboard/index.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
+}
+
+/*
 // src/Controller/DashboardController.php
 namespace App\Controller;
 
@@ -15,4 +33,4 @@ class DashboardController extends AbstractController
         return new Response('<h1>Welcome to the Dashboard! (Protected Area)</h1>');
     }
 }
-
+*/
