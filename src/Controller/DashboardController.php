@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,9 +15,9 @@ final class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
-}
+}*/
 
-/*
+
 // src/Controller/DashboardController.php
 namespace App\Controller;
 
@@ -33,4 +33,4 @@ class DashboardController extends AbstractController
         return new Response('<h1>Welcome to the Dashboard! (Protected Area)</h1>');
     }
 }
-*/
+
