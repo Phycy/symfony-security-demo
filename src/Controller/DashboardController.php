@@ -58,7 +58,7 @@ class DashboardController extends AbstractController
     }
 }*/
 
-namespace App\Controller;
+/*namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -81,6 +81,46 @@ class DashboardController extends AbstractController
         }
 
         return new Response($message);
+    }
+}*/
+
+/*namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+class DashboardController extends AbstractController
+{
+    #[Route('/dashboard', name: 'app_dashboard')]
+    #[IsGranted('ROLE_USER', 'ROLE_ADMIN')]
+    public function index(): Response
+    {
+        return $this->render('dashboard/index.html.twig');
+    }
+}*/
+
+
+
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class DashboardController extends AbstractController
+{
+    #[Route('/dashboard', name: 'app_dashboard')]
+    public function index(): Response
+    {
+        // Deny access if the user has neither role
+        if (!$this->isGranted('ROLE_USER') && !$this->isGranted('ROLE_ADMIN')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        return $this->render('dashboard/index.html.twig');
     }
 }
 

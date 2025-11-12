@@ -9,10 +9,10 @@ security:
             memory:
                 users:
                     admin:
-                        password: '$2y$13$W7UpLhR27E3p3Y2sx3S2/.YHfHnV5v0A6MlfXDBsyKyjWeJrIuG62'
+                        password: '$2y$13$uwPWDUdwkYxu4U42z71vSOLW3i8HCLhT9AxFxQwROLSxMD5i55aAC' #password
                         roles: ['ROLE_ADMIN']
                     user:
-                        password: '$2y$13$W7UpLhR27E3p3Y2sx3S2/.YHfHnV5v0A6MlfXDBsyKyjWeJrIuG62'
+                        password: '$2y$13$uwPWDUdwkYxu4U42z71vSOLW3i8HCLhT9AxFxQwROLSxMD5i55aAC' #password
                         roles: ['ROLE_USER']
                 
     firewalls:
@@ -28,7 +28,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                # target: app_any_routesy
 
             remember_me:
                 secret: '%kernel.secret%'
@@ -47,7 +47,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-    - { path: ^/dashboard, roles: [ROLE_USER, ROLE_ADMIN] }
+        - { path: ^/dashboard, roles: [ROLE_USER, ROLE_ADMIN] }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
